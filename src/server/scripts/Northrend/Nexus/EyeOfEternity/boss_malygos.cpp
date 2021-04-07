@@ -2,18 +2,18 @@
  * Originally written by Pussywizard - Copyright (C) 2016+ AzerothCore <www.azerothcore.org>, released under GNU AGPL v3 license: https://github.com/azerothcore/azerothcore-wotlk/blob/master/LICENSE-AGPL3
 */
 
-#include "ScriptMgr.h"
-#include "ScriptedCreature.h"
+#include "CombatAI.h"
 #include "eye_of_eternity.h"
-#include "Vehicle.h"
 #include "MoveSpline.h"
 #include "MoveSplineInit.h"
-#include "SpellScript.h"
-#include "PassiveAI.h"
-#include "CombatAI.h"
-#include "Player.h"
-#include "WorldSession.h"
 #include "Opcodes.h"
+#include "PassiveAI.h"
+#include "Player.h"
+#include "ScriptedCreature.h"
+#include "ScriptMgr.h"
+#include "SpellScript.h"
+#include "Vehicle.h"
+#include "WorldSession.h"
 
 enum MovementInformPoints
 {
@@ -188,7 +188,7 @@ public:
 
     CreatureAI* GetAI(Creature* pCreature) const override
     {
-        return new boss_malygosAI (pCreature);
+        return GetEyeOfEternityAI<boss_malygosAI>(pCreature);
     }
 
     struct boss_malygosAI : public ScriptedAI
@@ -852,7 +852,7 @@ public:
 
     CreatureAI* GetAI(Creature* pCreature) const override
     {
-        return new npc_vortex_rideAI (pCreature);
+        return GetEyeOfEternityAI<npc_vortex_rideAI> (pCreature);
     }
 
     struct npc_vortex_rideAI : public VehicleAI
@@ -950,7 +950,7 @@ public:
 
     CreatureAI* GetAI(Creature* pCreature) const override
     {
-        return new npc_power_sparkAI (pCreature);
+        return GetEyeOfEternityAI<npc_power_sparkAI>(pCreature);
     }
 
     struct npc_power_sparkAI : public NullCreatureAI
@@ -1046,7 +1046,7 @@ public:
 
     CreatureAI* GetAI(Creature* pCreature) const override
     {
-        return new npc_nexus_lordAI (pCreature);
+        return GetEyeOfEternityAI<npc_nexus_lordAI>(pCreature);
     }
 
     struct npc_nexus_lordAI : public ScriptedAI
@@ -1139,7 +1139,7 @@ public:
 
     CreatureAI* GetAI(Creature* pCreature) const override
     {
-        return new npc_scion_of_eternityAI (pCreature);
+        return GetEyeOfEternityAI<npc_scion_of_eternityAI>(pCreature);
     }
 
     struct npc_scion_of_eternityAI : public ScriptedAI
@@ -1213,7 +1213,7 @@ public:
 
     CreatureAI* GetAI(Creature* pCreature) const override
     {
-        return new npc_hover_diskAI (pCreature);
+        return GetEyeOfEternityAI<npc_hover_diskAI>(pCreature);
     }
 
     struct npc_hover_diskAI : public VehicleAI
@@ -1355,7 +1355,7 @@ public:
 
     CreatureAI* GetAI(Creature* pCreature) const override
     {
-        return new npc_alexstraszaAI (pCreature);
+        return GetEyeOfEternityAI<npc_alexstraszaAI>(pCreature);
     }
 
     struct npc_alexstraszaAI : public ScriptedAI
@@ -1412,7 +1412,7 @@ public:
 
     CreatureAI* GetAI(Creature* pCreature) const override
     {
-        return new npc_eoe_wyrmrest_skytalonAI (pCreature);
+        return GetEyeOfEternityAI<npc_eoe_wyrmrest_skytalonAI>(pCreature);
     }
 
     struct npc_eoe_wyrmrest_skytalonAI : public VehicleAI

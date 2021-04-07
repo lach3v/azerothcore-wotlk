@@ -2,10 +2,10 @@
  * Originally written by Pussywizard - Copyright (C) 2016+ AzerothCore <www.azerothcore.org>, released under GNU AGPL v3 license: https://github.com/azerothcore/azerothcore-wotlk/blob/master/LICENSE-AGPL3
 */
 
-#include "ScriptMgr.h"
-#include "ScriptedCreature.h"
 #include "onyxias_lair.h"
 #include "Player.h"
+#include "ScriptedCreature.h"
+#include "ScriptMgr.h"
 #include "SpellInfo.h"
 
 enum // Spells
@@ -102,7 +102,7 @@ public:
 
     CreatureAI* GetAI(Creature* pCreature) const override
     {
-        return new boss_onyxiaAI (pCreature);
+        return GetOnyxiasLairAI<boss_onyxiaAI>(pCreature);
     }
 
     struct boss_onyxiaAI : public ScriptedAI
@@ -532,7 +532,7 @@ public:
 
     CreatureAI* GetAI(Creature* pCreature) const override
     {
-        return new npc_onyxian_lair_guardAI (pCreature);
+        return GetOnyxiasLairAI<npc_onyxian_lair_guardAI>(pCreature);
     }
 
     struct npc_onyxian_lair_guardAI : public ScriptedAI
@@ -601,7 +601,7 @@ public:
 
     CreatureAI* GetAI(Creature* pCreature) const override
     {
-        return new npc_onyxia_whelpAI (pCreature);
+        return GetOnyxiasLairAI<npc_onyxia_whelpAI>(pCreature);
     }
 
     struct npc_onyxia_whelpAI : public ScriptedAI
@@ -626,7 +626,7 @@ public:
 
     CreatureAI* GetAI(Creature* pCreature) const override
     {
-        return new npc_onyxia_triggerAI (pCreature);
+        return GetOnyxiasLairAI<npc_onyxia_triggerAI>(pCreature);
     }
 
     struct npc_onyxia_triggerAI : public ScriptedAI

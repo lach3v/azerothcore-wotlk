@@ -2,11 +2,11 @@
  * Originally written by Pussywizard - Copyright (C) 2016+ AzerothCore <www.azerothcore.org>, released under GNU AGPL v3 license: https://github.com/azerothcore/azerothcore-wotlk/blob/master/LICENSE-AGPL3
 */
 
-#include "ScriptMgr.h"
-#include "ScriptedCreature.h"
 #include "GameObjectAI.h"
-#include "Vehicle.h"
+#include "ScriptedCreature.h"
+#include "ScriptMgr.h"
 #include "utgarde_keep.h"
+#include "Vehicle.h"
 
 class npc_dragonflayer_forge_master : public CreatureScript
 {
@@ -15,7 +15,7 @@ public:
 
     CreatureAI* GetAI(Creature* pCreature) const override
     {
-        return new npc_dragonflayer_forge_masterAI(pCreature);
+        return GetUtgardeKeepAI<npc_dragonflayer_forge_masterAI>(pCreature);
     }
 
     struct npc_dragonflayer_forge_masterAI : public ScriptedAI
@@ -187,7 +187,7 @@ public:
 
     CreatureAI* GetAI(Creature* creature) const override
     {
-        return new npc_enslaved_proto_drakeAI(creature);
+        return GetUtgardeKeepAI<npc_enslaved_proto_drakeAI>(creature);
     }
 };
 
